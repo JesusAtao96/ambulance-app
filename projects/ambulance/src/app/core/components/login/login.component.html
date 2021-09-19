@@ -1,9 +1,16 @@
-<mat-form-field appearance="outline">
-  <mat-label>Correo</mat-label>
-  <input matInput placeholder="Correo">
-</mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Contraseña</mat-label>
-  <input type="password" matInput placeholder="Contraseña">
-</mat-form-field>
-<button mat-raised-button color="primary">Ingresar</button>
+<form fxLayout="column">
+  <h2>Credenciales</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Correo</mat-label>
+    <input matInput required>
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Contraseña</mat-label>
+    <input [type]="togglePassword ? 'password' : 'text'" matInput required>
+    <button type="button" mat-icon-button matSuffix (click)="togglePassword = !togglePassword">
+      <mat-icon>{{ togglePassword ? 'lock' : 'lock_open' }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Ingresar</button>
+</form>

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 
@@ -26,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     CoreModule,
     DashboardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
