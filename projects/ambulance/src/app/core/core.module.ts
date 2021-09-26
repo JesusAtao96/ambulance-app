@@ -1,5 +1,6 @@
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -20,10 +21,11 @@ import { MenuComponent } from './components/menu/menu.component';
     PageLoginComponent,
     LoginComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -31,14 +33,14 @@ import { MenuComponent } from './components/menu/menu.component';
     MatToolbarModule,
     MatMenuModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   exports: [
     PageLoginComponent,
     HeaderComponent,
     MenuComponent,
     MatIconModule,
-    FlexLayoutModule
-  ]
+    FlexLayoutModule,
+  ],
 })
 export class CoreModule {}
