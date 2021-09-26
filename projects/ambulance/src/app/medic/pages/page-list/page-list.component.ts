@@ -8,14 +8,15 @@ import { MetaDataColumn } from '../../../shared/interfaces/metaColumn.interface'
 })
 export class PageListComponent implements OnInit {
   data: any[] = [
-    { id: 1, name: 'John', cmp: '24561' },
-    { id: 2, name: 'Jane', cmp: '24562' },
-    { id: 3, name: 'Jack', cmp: '24563' },
+    { id: 1, name: 'John', cmp: '24568' },
+    { id: 2, name: 'Jane', cmp: '12548' },
+    { id: 3, name: 'Jack', cmp: '89523' },
   ];
+
   metaDataColumns: MetaDataColumn[] = [
     { field: 'id', title: 'ID' },
-    { field: 'name', title: 'Nombre ' },
-    { field: 'cmp', title: 'CMP' },
+    { field: 'name', title: 'Nombre' },
+    { field: 'cmp', title: 'Número de colegiatura' },
   ];
 
   constructor() {}
