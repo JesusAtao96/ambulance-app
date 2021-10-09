@@ -1,45 +1,73 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { TitleComponent } from './components/title/title.component';
+import { ContainerComponent } from './components/container/container.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { TableComponent } from './components/table/table.component';
 import { MatTableModule } from '@angular/material/table';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import {
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule,
+  PERFECT_SCROLLBAR_CONFIG,
+} from 'ngx-perfect-scrollbar';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { KeypadComponent } from './components/keypad/keypad.component';
+import { ConfirmComponent } from './components/confirm/confirm.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
 };
 
-import { TitleComponent } from './components/title/title.component';
-import { ContainerComponent } from './components/container/container.component';
-import { TableComponent } from './components/table/table.component';
-
 @NgModule({
-  declarations: [TitleComponent, ContainerComponent, TableComponent],
+  declarations: [
+    TitleComponent,
+    ContainerComponent,
+    TableComponent,
+    PaginatorComponent,
+    KeypadComponent,
+    ConfirmComponent,
+  ],
   imports: [
     CommonModule,
-    FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
+    FlexLayoutModule,
     MatCardModule,
     MatTableModule,
-    PerfectScrollbarModule,
-  ],
-  providers: [
-    {
-      provide: PERFECT_SCROLLBAR_CONFIG,
-      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
-    },
+    MatPaginatorModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatTooltipModule,
   ],
   exports: [
     TitleComponent,
     ContainerComponent,
     TableComponent,
     PerfectScrollbarModule,
+    PaginatorComponent,
+    MatIconModule,
+    MatTableModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatTooltipModule,
+    KeypadComponent,
+    ConfirmComponent,
+    MatDialogModule,
+  ],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
   ],
 })
 export class SharedModule {}

@@ -1,8 +1,8 @@
-<mat-sidenav-container [autosize]="true">
-  <mat-sidenav [opened]="true" mode="side">
+<mat-sidenav-container autosize="true">
+  <mat-sidenav opened="true" mode="side">
     <div class="logo" fxLayout fxLayoutGap="20px" fxLayoutAlign="start center">
       <mat-icon>face</mat-icon>
-      <h3 *ngIf="expanded">Sistema de historias</h3>
+      <h3 *ngIf="expanded" fxLayoutGap>Sistema de historias</h3>
     </div>
     <amb-menu (onToggleExpanded)="toggleExpanded($event)"></amb-menu>
   </mat-sidenav>
