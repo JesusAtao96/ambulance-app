@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": false
+    "analytics": "a3433a35-5010-4b98-8384-2163dbd53303"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -25,6 +25,7 @@
             "main": "projects/ambulance/src/main.ts",
             "polyfills": "projects/ambulance/src/polyfills.ts",
             "tsConfig": "projects/ambulance/tsconfig.app.json",
+            "allowedCommonJsDependencies": ["xlsx"],
             "assets": [
               "projects/ambulance/src/favicon.ico",
               "projects/ambulance/src/assets"
@@ -97,10 +98,39 @@
               "projects/ambulance/src/favicon.ico",
               "projects/ambulance/src/assets"
             ],
-            "styles": [
-              "projects/ambulance/src/styles.css"
-            ],
+            "styles": ["projects/ambulance/src/styles.css"],
             "scripts": []
+          }
+        }
+      }
+    },
+    "cdevTable": {
+      "projectType": "library",
+      "root": "projects/cdev-table",
+      "sourceRoot": "projects/cdev-table/src",
+      "prefix": "cdev",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cdev-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cdev-table/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cdev-table/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cdev-table/src/test.ts",
+            "tsConfig": "projects/cdev-table/tsconfig.spec.json",
+            "karmaConfig": "projects/cdev-table/karma.conf.js"
           }
         }
       }
