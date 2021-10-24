@@ -1,6 +1,6 @@
 import { environment } from 'projects/ambulance/src/environments/environment';
 import { Observable } from 'rxjs';
-import { UtilsService } from '../../services/utils.service';
+import { UtilsService } from '../../helpers/services/utils.service';
 import { MetaDataColumn } from '../interfaces/metacolumn.interface';
 
 export abstract class BaseComponent {
@@ -49,5 +49,5 @@ export abstract class BaseComponent {
     return !!this.records.slice(skip, skip + pageSize).length;
   }
 
-  abstract edit(row: any): void;
+  abstract openForm(row: any): void;
 }

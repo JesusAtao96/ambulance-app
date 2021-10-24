@@ -1,13 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
-import { environment } from '../../../../environments/environment';
-import { UtilsService } from '../../../services/utils.service';
+import { Component } from '@angular/core';
+import { UtilsService } from '../../../helpers/services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
-import { ConfirmComponent } from '../../../shared/components/confirm/confirm.component';
 import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
-import { MedicUserType } from '../../../shared/types/medic-user.type';
+import { FormComponent } from '../../components/form/form.component';
 import { UserModel } from '../../domain/user.model';
 import { UserExportDto } from '../../dtos/user-export.dto';
 
@@ -53,7 +49,7 @@ export class PageListComponent extends BaseComponent {
     { field: 'correo', title: 'Correo' },
   ];
 
-  constructor(private dialog: MatDialog, public utilsService: UtilsService) {
+  constructor(public utilsService: UtilsService) {
     super(utilsService);
     this.changePage(0);
   }
@@ -69,8 +65,14 @@ export class PageListComponent extends BaseComponent {
           dto
         );
         break;
+      case 'NEW':
+        this.openForm();
+        break;
     }
   }
 
-  edit(row: any) {}
+  openForm(row: any = null) {
+    const options = { panelClass: 'panel-container' };
+    this.utilsService.showModal(FormComponent, options);
+  }
 }
