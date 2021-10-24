@@ -10,10 +10,15 @@ import { Paginator } from './shared/classes/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { IconService } from './helpers/services/icon.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigModule } from './config/modules/config.module';
 import { configLayout } from './config/constants/config.constant';
+import { IconService } from './helpers/services/icon.service';
+import { AuthInfraestructure } from './core/infraestructure/auth.infraestructure';
+import { AuthRepository } from './core/application/auth.repository';
+import { AuthUseCase } from './core/application/auth.usecase';
+import { StorageInfraestructure } from './core/infraestructure/storage.infraestructure';
+import { StorageRepository } from './core/application/storage.repository';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,8 +36,9 @@ import { configLayout } from './config/constants/config.constant';
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: Paginator },
-    // UtilsService,
-    /*    { provide: UtilsService, useClass: UtilsService }, */
+    { provide: AuthRepository, useClass: AuthInfraestructure },
+    { provide: StorageRepository, useClass: StorageInfraestructure },
+    AuthUseCase,
   ],
   bootstrap: [AppComponent],
 })

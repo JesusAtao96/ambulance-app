@@ -20,6 +20,7 @@ export abstract class BaseComponent {
     const pageSize = environment.PAGE_SIZE;
     const skip = pageSize * page;
     this.data = this.records.slice(skip, skip + pageSize);
+    this.totalRecords = this.records.length;
   }
 
   delete(id: number, textAdditional: string = '') {
