@@ -11,7 +11,6 @@ export class AuthInfraestructure extends AuthRepository {
   constructor(private http: HttpClient) {
     super();
   }
-
   login(auth: AuthModel): Observable<Tokens> {
     return this.http.post<Tokens>(`${environment.API_URL}/users/login`, auth);
   }

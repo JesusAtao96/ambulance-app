@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthUseCase } from '../../application/auth.usecase';
 import { AuthModel } from '../../domain/auth.model';
 
 @Component({
